@@ -336,4 +336,3 @@ http://127.0.0.1:5500/html/recognition.html
 * Do not close either terminal while the application is running.
 
 ---
-If you found this project useful, consider giving it a **⭐ Star** on GitHub.
