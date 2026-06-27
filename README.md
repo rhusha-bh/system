@@ -1,206 +1,352 @@
-Deep Learning Based Real-Time Sign Language Recognition
-Requirements
+````markdown
+# 🤟 Deep Learning Based Real-Time Sign Language Recognition
 
-Before running the project, make sure the following are installed:
+A real-time Sign Language Recognition system developed using **PyTorch, FastAPI, OpenCV, and Deep Learning**. The application captures hand gestures through a webcam and predicts sign language characters in real time using a trained deep learning model.
 
-Python 3.10 or later
-pip
-Git (optional)
-Webcam
-Project Folder
+---
+
+## 📌 Features
+
+- 🔤 Real-time Sign Language Recognition
+- 📷 Live Webcam Detection
+- 🧠 Deep Learning Model (PyTorch)
+- ⚡ FastAPI Backend
+- 🌐 Browser-Based Frontend
+- 🎯 Fast and Accurate Predictions
+- 💻 Simple Local Deployment
+
+---
+
+## 🛠 Technologies Used
+
+- Python
+- PyTorch
+- FastAPI
+- Uvicorn
+- OpenCV
+- NumPy
+- Pillow
+- HTML
+- CSS
+- JavaScript
+
+---
+
+# 📂 Project Structure
+
+```text
 Project/
 │
 ├── requirements.txt
 ├── .venv/
+│
 ├── src/
+│   │
 │   ├── backend/
-│   │     ├── main.py
-│   │     └── model.pth
+│   │   ├── main.py
+│   │   ├── model.pth
+│   │   └── ...
 │   │
 │   ├── frontend/
-│   │     └── html/
-│   │           └── recognition.html
+│   │   └── html/
+│   │       └── recognition.html
 │   │
 │   └── training/
-│         └── train.py
-STEP 1 - Open PowerShell
+│       ├── train.py
+│       └── ...
+│
+└── README.md
+````
 
-Open Windows PowerShell or VS Code Terminal.
+---
 
-Navigate to the project folder.
+# 🚀 Getting Started
 
-cd C:\Users\<YourUsername>\Desktop\Project
+## 1️⃣ Clone the Repository
 
-Replace <YourUsername> with your Windows username.
+```powershell
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+```
 
-STEP 2 - Create Virtual Environment (First Time Only)
+Open the project folder.
+
+```powershell
+cd Project
+```
+
+---
+
+## 2️⃣ Create a Virtual Environment
+
+Run the following command only once.
+
+```powershell
 python -m venv .venv
+```
 
-This creates a virtual environment named .venv.
+---
 
-STEP 3 - Activate Virtual Environment
-cd C:\Users\<YourUsername>\Desktop\Project
+## 3️⃣ Activate the Virtual Environment
+
+### Windows PowerShell
+
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
 
-If activated successfully, the terminal will show:
+If activated successfully, your terminal should display:
 
+```text
 (.venv)
+```
 
-before the command prompt.
+---
 
-STEP 4 - Install Required Packages (First Time Only)
-pip install -r C:\Users\<YourUsername>\Desktop\Project\requirements.txt
+## 4️⃣ Install Dependencies
 
-Wait until all packages are installed.
+Run this command only once.
 
-STEP 5 - Train the Model (Optional)
+```powershell
+pip install -r requirements.txt
+```
 
-Run this only if model.pth is missing or you want to retrain the model.
+---
 
-cd C:\Users\<YourUsername>\Desktop\Project\src\training
+## 5️⃣ Train the Model (Optional)
+
+Skip this step if **model.pth** already exists.
+
+```powershell
+cd src\training
 
 python train.py
+```
 
-This creates:
+The trained model will be saved as:
 
-Project
-└── src
-    └── backend
-        └── model.pth
+```text
+src/backend/model.pth
+```
 
-If model.pth already exists, skip this step.
+---
 
-STEP 6 - Start Backend Server
+# ▶ Running the Application
 
-Open a new terminal.
+Open **two terminal windows**.
 
-Activate the virtual environment again.
+---
 
-cd C:\Users\<YourUsername>\Desktop\Project
-
-.\.venv\Scripts\Activate.ps1
-
-Navigate to backend.
-
-cd src\backend
-
-Run FastAPI.
-
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
-
-If successful, you should see something similar to:
-
-INFO: Uvicorn running on http://127.0.0.1:8000
-Application startup complete.
-
-Keep this terminal running.
-
-STEP 7 - Start Frontend
-
-Open another terminal.
+## 🖥 Terminal 1 – Start Backend
 
 Activate the virtual environment.
 
-cd C:\Users\<YourUsername>\Desktop\Project
+```powershell
+cd Project
 
 .\.venv\Scripts\Activate.ps1
+```
+
+Go to the backend folder.
+
+```powershell
+cd src\backend
+```
+
+Run the FastAPI server.
+
+```powershell
+uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+If everything is working correctly, you should see:
+
+```text
+INFO:     Uvicorn running on http://127.0.0.1:8000
+INFO:     Application startup complete.
+```
+
+Leave this terminal running.
+
+---
+
+## 🌐 Terminal 2 – Start Frontend
+
+Activate the virtual environment.
+
+```powershell
+cd Project
+
+.\.venv\Scripts\Activate.ps1
+```
 
 Navigate to the frontend folder.
 
+```powershell
 cd src\frontend
+```
 
-Start the HTTP server.
+Start the local web server.
 
+```powershell
 py -m http.server 5500
+```
 
-You should see:
+Leave this terminal running.
 
-Serving HTTP on 0.0.0.0 port 5500...
+---
 
-Keep this terminal running.
+# 🌍 Open the Application
 
-STEP 8 - Open the Application
+Open your browser and visit:
 
-Open your browser and go to:
-
+```text
 http://127.0.0.1:5500/html/recognition.html
+```
 
-Allow camera permission when prompted.
+Allow camera access when prompted.
 
-The application will start detecting sign language gestures.
+The application will begin recognizing sign language gestures in real time.
 
-Running the Project Next Time
+---
 
-Only perform these steps:
+# 🔄 Running the Project Again
 
-Terminal 1
-cd C:\Users\<YourUsername>\Desktop\Project
+Once everything has been installed, you only need to run these commands.
+
+### Backend
+
+```powershell
+cd Project
 
 .\.venv\Scripts\Activate.ps1
 
 cd src\backend
 
 uvicorn main:app --host 127.0.0.1 --port 8000 --reload
-Terminal 2
-cd C:\Users\<YourUsername>\Desktop\Project
+```
+
+---
+
+### Frontend
+
+```powershell
+cd Project
 
 .\.venv\Scripts\Activate.ps1
 
 cd src\frontend
 
 py -m http.server 5500
+```
 
 Open:
 
+```text
 http://127.0.0.1:5500/html/recognition.html
-Common Issues
-Virtual Environment Not Activated
+```
+
+---
+
+# ⚠ Common Issues
+
+## PowerShell Execution Policy Error
 
 Run:
 
-.\.venv\Scripts\Activate.ps1
-Execution Policy Error
-
-If PowerShell blocks activation:
-
+```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
 
-Then activate again.
+Then activate the virtual environment again.
 
-Missing Packages
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
 
-Install requirements again:
+---
 
+## Missing Python Packages
+
+Reinstall all dependencies.
+
+```powershell
 pip install -r requirements.txt
-WebSocket Warning
+```
+
+---
+
+## WebSocket Warning
 
 If you see:
 
+```text
 No supported WebSocket library detected
+```
 
 Install:
 
+```powershell
 pip install "uvicorn[standard]"
+```
 
 or
 
+```powershell
 pip install websockets wsproto
-Backend Not Starting
+```
 
-Ensure you are inside:
+---
 
+## Backend Not Starting
+
+Make sure you are inside:
+
+```text
 src/backend
+```
 
 before running:
 
+```powershell
 uvicorn main:app --reload
-Frontend Not Opening
+```
 
-Make sure the HTTP server is running on port 5500 and open:
+---
 
+## Frontend Not Loading
+
+Ensure the HTTP server is running on port **5500**.
+
+Open:
+
+```text
 http://127.0.0.1:5500/html/recognition.html
-Notes
-Keep both backend and frontend terminals running while using the application.
-Ensure the webcam is connected and browser camera permissions are granted.
-Retraining the model is only required if model.pth is missing or updated.
-Do not close the backend or frontend terminals while the application is in use.
+```
+
+---
+
+# 📝 Notes
+
+* Keep both terminal windows open while using the application.
+* Ensure your webcam is connected and accessible.
+* Allow browser permission for camera access.
+* Retraining the model is only necessary if `model.pth` is missing or you want to generate a new model.
+
+---
+
+# 👨‍💻 Developed By
+
+**Rhushabh Gaikwad**
+
+Bachelor of Engineering (Computer Engineering)
+
+Savitribai Phule Pune University
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
+
+```
+```
